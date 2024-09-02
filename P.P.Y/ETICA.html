@@ -1,0 +1,789 @@
+
+                <!doctype html>
+                <html lang="es">
+                  <head>
+                    <title>ETICA </title>
+                    <meta charset="utf-8">
+                    <meta name="robots" content="index, follow">
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+                    <link rel="stylesheet" href="/etica/style.css">
+                    <link rel="stylesheet" href="https://editor.webme.com/assets/css/webme-v2.css">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <style>
+    
+      @font-face {
+        font-display: auto;
+        font-family: 'Inter';
+        src: url('https://editor.webme.com/assets/fonts/Inter/Inter.ttf') format('truetype')
+      }
+      @font-face {
+        font-display: auto;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        src: url('https://editor.webme.com/assets/fonts/Roboto/Roboto-Medium.ttf') format('truetype')
+      }
+      @font-face {
+        font-display: auto;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        src: url('https://editor.webme.com/assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype')
+      }
+      @font-face {
+        font-display: auto;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 800;
+        src: url('https://editor.webme.com/assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype')
+      }
+      
+    @font-face {
+      font-display: auto;
+      font-family: Inter;
+      font-weight: 400;
+      src: url('https://assets.webme.com/fonts/Inter-Regular.woff2') format('woff2'), url('https://assets.webme.com/fonts/Inter-Regular.ttf') format('truetype')
+    }
+    @font-face {
+      font-display: swap;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      src: url('https://assets.webme.com/fonts/Inter-Medium.woff2') format('woff2'),
+      url('https://assets.webme.com/fonts/Inter-Medium.ttf') format('truetype');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      src: url('https://assets.webme.com/fonts/Inter-Medium.woff2') format('woff2'),
+      url('https://assets.webme.com/fonts/Inter-SemiBold.ttf') format('truetype');
+    }
+    @font-face {
+      font-display: auto;
+      font-family: Inter;
+      font-weight: 700;
+      src: url('https://assets.webme.com/fonts/Inter-Bold.woff2') format('woff2'),
+      url('https://assets.webme.com/fonts/Inter-Bold.ttf') format('truetype')
+    }
+
+ 
+
+
+    img {
+  max-width: 85%; /* No permitirá que la imagen exceda el tamaño del contenedor */
+  height: auto; /* Mantiene la proporción */
+}
+
+footer {
+ background-color: #fddfdf;
+color: #000000;
+ padding: 1rem;
+text-align: center;
+margin-top: 1rem;
+       
+ }
+
+ .gallery-container {    /* Galeria con barras de dezplazamienyo y titulo */
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #aca7a7;
+            border: 1px solid #ccc;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            position: relative;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            display: block;
+            max-width: 450px;
+            width: 110%;
+            height: 300px;
+        }
+
+        .gallery-item a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .gallery-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 154, 154, 0.6);
+            color: #ffffff;
+            padding: 5px;
+            font-size: 16px;
+            max-width: 90%;
+        }
+
+        .gallery-item:hover .gallery-title {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+       /* Reset */
+       .cartera, .tarjeta, .tarjeta a {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+/* Contenedor general */
+.cartera {
+position: relative;
+width: 100%;
+max-width: 500px;
+margin: 105px auto 0;
+text-align: center;
+line-height: 56px;
+font-size: 14px;
+font-family: sans-serif;
+}
+/* Cada tarjeta */
+.tarjeta {
+position: relative;
+width: 100%;
+height: 30px;
+margin: 0 auto;
+padding: 0;
+text-align: left;
+border-bottom: 3px groove #eee;
+}
+/* Estado normal */
+.tarjeta a {
+position: relative;
+display: block;
+top: -6px;
+left: 50%;
+width: 96%;
+margin-left: -48%;
+padding: 0 0 0 16px;
+line-height: 32px;
+font-weight: normal;
+border-radius: 16px 16px 0 0;
+text-decoration: none;
+box-shadow: 0 -2px 2px rgba(0,0,0,.1), 0 0 20px rgba(0,0,0,.2) inset; 
+-webkit-transition: all .2s linear;
+-moz-transition: all .2s linear;
+transition: all .2s linear;
+}
+/* Elevación de las tarjetas */
+.tarjeta a:hover {
+line-height: 52px;
+top: -26px;
+text-decoration: none;
+}
+/* Logos */
+.tarjeta a:before { 
+
+width: 20px;
+margin-right: 10px;
+text-align: center;
+font-family: Fontawesome;
+font-size: 18px;
+}
+/* Sombra parte inferior */
+.tarjeta a:after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 102%;
+margin-left: -51%;
+height: 2px;
+display: block;
+border-radius: 80px 80px 0 0 ;
+box-shadow: 0 -2px 6px #44a702;
+z-index: -1;
+}
+/* Colores Twitter */
+.tarjeta.ttwitter a {
+color: #ddd;
+background-color: #01AFEC;
+border-top: 2px solid #43CFFE;
+}
+/* Colores Facebook */
+.tarjeta.tfacebook a {
+color: #ccc;
+background: #3B559F;
+border-top: 2px solid #6B83C9;
+
+}
+/* Colores Instagram */
+.tarjeta.tinstagram a {
+color: #070707;
+background: #dbb7d6a7;
+border-top: 2px solid #df7a7a;
+}
+.hero__container {
+    position: relative;
+}
+
+.menu-container {
+    position: absolute;
+    top: 20px;  /* Ajusta la distancia desde la parte superior */
+    left: 20px; /* Ajusta la distancia desde el lado izquierdo */
+    z-index: 10; /* Asegúrate de que el menú esté por encima del fondo */
+}
+
+.menu-button {
+    background-color: #333;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-button:hover {
+    background-color: #555;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 0;
+    top: 40px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ecbebe;
+}
+
+
+
+        .text-block {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-block__container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 80px;
+            box-shadow: 0 4px 8px rgba(183, 19, 19, 0.936);
+            overflow: hidden;
+            padding: 10px;
+            margin-bottom: 40px; /* Añade espacio debajo del bloque */
+            transition: transform 0.3s ease;
+        }
+
+        .text-block__container:hover {
+            transform: translateY(-5px);
+        }
+
+        .text-block__content {
+            margin-bottom: 20px;
+        }
+
+        .text-block__description {
+            margin-top: 10px;
+        }
+
+        .text-block__content p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .text-block__content h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+       
+  </style>
+
+  <body>
+    
+
+ <div class="owner-bubble">
+  <div class="owner-bubble__content">
+    <div class="owner-bubble__tooltip"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none" class="owner-bubble__close">
+      <path opacity="0.1" d="M6 7.00061L14 15.0006M14 7.00061L6 15.0006" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 44 40" fill="none">
+      <path d="M36.4834 17.0499C35.392 19.2187 33.4073 23.7598 32.8579 25.0869C32.699 25.4686 32.1701 25.4255 32.0692 25.0243L30.791 19.9351C30.5349 18.9075 30.3051 18.1245 30.1032 17.5882C29.9014 17.0519 29.5706 16.588 29.1109 16.1965C28.6568 15.8089 28.04 15.6152 27.2626 15.6112C26.4852 15.6152 25.8666 15.8109 25.4143 16.1965C24.9546 16.588 24.6238 17.0519 24.422 17.5882C24.2183 18.1245 23.9903 18.9075 23.7343 19.9351L22.1944 25.541C22.1402 25.7407 21.8692 25.7407 21.815 25.541L20.2751 19.9351C20.019 18.9075 19.7892 18.1245 19.5873 17.5882C19.3855 17.0519 19.0547 16.588 18.595 16.1965C18.1409 15.8089 17.5242 15.6152 16.7467 15.6112C15.9693 15.6152 15.3507 15.8109 14.8985 16.1965C14.4387 16.588 14.1079 17.0519 13.9061 17.5882C13.7024 18.1245 13.4744 18.9075 13.2184 19.9351L11.9401 25.0243C11.8392 25.4275 11.3103 25.4705 11.1515 25.0869C10.602 23.7578 8.61734 19.2167 7.52594 17.0499C5.82531 13.6911 1 6.9303 1 6.9303C1 6.9303 3.53226 11.7572 5.36371 16.956C7.38578 22.7009 8.29964 30.544 8.44914 31.1195C8.59865 31.695 8.79114 32.1922 9.02474 32.613C9.26021 33.0319 9.5667 33.3568 9.94607 33.5858C10.3254 33.8148 10.8076 33.9303 11.3944 33.9303C12.1195 33.9303 12.7026 33.7365 13.1399 33.3509C13.5772 32.9653 13.8837 32.5288 14.0612 32.0434C14.2388 31.558 14.4742 30.7554 14.7732 29.6378L16.7411 22.0921L18.709 29.6378C19.008 30.7554 19.2453 31.558 19.421 32.0434C19.5967 32.5288 19.9032 32.9653 20.3424 33.3509C20.7591 33.7189 21.3085 33.9088 21.985 33.9264C21.9907 33.9264 21.9963 33.9264 22.0019 33.9264C22.0075 33.9264 22.0131 33.9264 22.0187 33.9264C22.6971 33.9088 23.2446 33.7189 23.6614 33.3509C24.0987 32.9653 24.4052 32.5288 24.5827 32.0434C24.7584 31.558 24.9957 30.7554 25.2947 29.6378L27.2626 22.0921L29.2305 29.6378C29.5295 30.7554 29.7668 31.558 29.9425 32.0434C30.1182 32.5288 30.4247 32.9653 30.8638 33.3509C31.3011 33.7365 31.8824 33.9303 32.6093 33.9303C33.1961 33.9303 33.6802 33.8148 34.0577 33.5858C34.437 33.3568 34.7435 33.0319 34.979 32.613C35.2145 32.1941 35.407 31.6969 35.5546 31.1195C35.7041 30.544 36.618 22.7009 38.64 16.956C40.4677 11.7572 43 6.9303 43 6.9303C43 6.9303 38.1747 13.6911 36.4834 17.0499Z" fill="#714CEF"/>
+      <path d="M36.4834 17.0499C35.392 19.2187 33.4073 23.7598 32.8579 25.0869C32.699 25.4686 32.1701 25.4255 32.0692 25.0243L30.791 19.9351C30.5349 18.9075 30.3051 18.1245 30.1032 17.5882C29.9014 17.0519 29.5706 16.588 29.1109 16.1965C28.6568 15.8089 28.04 15.6152 27.2626 15.6112C26.4852 15.6152 25.8666 15.8109 25.4143 16.1965C24.9546 16.588 24.6238 17.0519 24.422 17.5882C24.2183 18.1245 23.9903 18.9075 23.7343 19.9351L22.1944 25.541C22.1402 25.7407 21.8692 25.7407 21.815 25.541L20.2751 19.9351C20.019 18.9075 19.7892 18.1245 19.5873 17.5882C19.3855 17.0519 19.0547 16.588 18.595 16.1965C18.1409 15.8089 17.5242 15.6152 16.7467 15.6112C15.9693 15.6152 15.3507 15.8109 14.8985 16.1965C14.4387 16.588 14.1079 17.0519 13.9061 17.5882C13.7024 18.1245 13.4744 18.9075 13.2184 19.9351L11.9401 25.0243C11.8392 25.4275 11.3103 25.4705 11.1515 25.0869C10.602 23.7578 8.61734 19.2167 7.52594 17.0499C5.82531 13.6911 1 6.9303 1 6.9303C1 6.9303 3.53226 11.7572 5.36371 16.956C7.38578 22.7009 8.29964 30.544 8.44914 31.1195C8.59865 31.695 8.79114 32.1922 9.02474 32.613C9.26021 33.0319 9.5667 33.3568 9.94607 33.5858C10.3254 33.8148 10.8076 33.9303 11.3944 33.9303C12.1195 33.9303 12.7026 33.7365 13.1399 33.3509C13.5772 32.9653 13.8837 32.5288 14.0612 32.0434C14.2388 31.558 14.4742 30.7554 14.7732 29.6378L16.7411 22.0921L18.709 29.6378C19.008 30.7554 19.2453 31.558 19.421 32.0434C19.5967 32.5288 19.9032 32.9653 20.3424 33.3509C20.7591 33.7189 21.3085 33.9088 21.985 33.9264C21.9907 33.9264 21.9963 33.9264 22.0019 33.9264C22.0075 33.9264 22.0131 33.9264 22.0187 33.9264C22.6971 33.9088 23.2446 33.7189 23.6614 33.3509C24.0987 32.9653 24.4052 32.5288 24.5827 32.0434C24.7584 31.558 24.9957 30.7554 25.2947 29.6378L27.2626 22.0921L29.2305 29.6378C29.5295 30.7554 29.7668 31.558 29.9425 32.0434C30.1182 32.5288 30.4247 32.9653 30.8638 33.3509C31.3011 33.7365 31.8824 33.9303 32.6093 33.9303C33.1961 33.9303 33.6802 33.8148 34.0577 33.5858C34.437 33.3568 34.7435 33.0319 34.979 32.613C35.2145 32.1941 35.407 31.6969 35.5546 31.1195C35.7041 30.544 36.618 22.7009 38.64 16.956C40.4677 11.7572 43 6.9303 43 6.9303C43 6.9303 38.1747 13.6911 36.4834 17.0499Z" fill="url(#paint0_linear_62_451)" fill-opacity="0.68"/>
+      <path d="M36.4834 17.0499C35.392 19.2187 33.4073 23.7598 32.8579 25.0869C32.699 25.4686 32.1701 25.4255 32.0692 25.0243L30.791 19.9351C30.5349 18.9075 30.3051 18.1245 30.1032 17.5882C29.9014 17.0519 29.5706 16.588 29.1109 16.1965C28.6568 15.8089 28.04 15.6152 27.2626 15.6112C26.4852 15.6152 25.8666 15.8109 25.4143 16.1965C24.9546 16.588 24.6238 17.0519 24.422 17.5882C24.2183 18.1245 23.9903 18.9075 23.7343 19.9351L22.1944 25.541C22.1402 25.7407 21.8692 25.7407 21.815 25.541L20.2751 19.9351C20.019 18.9075 19.7892 18.1245 19.5873 17.5882C19.3855 17.0519 19.0547 16.588 18.595 16.1965C18.1409 15.8089 17.5242 15.6152 16.7467 15.6112C15.9693 15.6152 15.3507 15.8109 14.8985 16.1965C14.4387 16.588 14.1079 17.0519 13.9061 17.5882C13.7024 18.1245 13.4744 18.9075 13.2184 19.9351L11.9401 25.0243C11.8392 25.4275 11.3103 25.4705 11.1515 25.0869C10.602 23.7578 8.61734 19.2167 7.52594 17.0499C5.82531 13.6911 1 6.9303 1 6.9303C1 6.9303 3.53226 11.7572 5.36371 16.956C7.38578 22.7009 8.29964 30.544 8.44914 31.1195C8.59865 31.695 8.79114 32.1922 9.02474 32.613C9.26021 33.0319 9.5667 33.3568 9.94607 33.5858C10.3254 33.8148 10.8076 33.9303 11.3944 33.9303C12.1195 33.9303 12.7026 33.7365 13.1399 33.3509C13.5772 32.9653 13.8837 32.5288 14.0612 32.0434C14.2388 31.558 14.4742 30.7554 14.7732 29.6378L16.7411 22.0921L18.709 29.6378C19.008 30.7554 19.2453 31.558 19.421 32.0434C19.5967 32.5288 19.9032 32.9653 20.3424 33.3509C20.7591 33.7189 21.3085 33.9088 21.985 33.9264C21.9907 33.9264 21.9963 33.9264 22.0019 33.9264C22.0075 33.9264 22.0131 33.9264 22.0187 33.9264C22.6971 33.9088 23.2446 33.7189 23.6614 33.3509C24.0987 32.9653 24.4052 32.5288 24.5827 32.0434C24.7584 31.558 24.9957 30.7554 25.2947 29.6378L27.2626 22.0921L29.2305 29.6378C29.5295 30.7554 29.7668 31.558 29.9425 32.0434C30.1182 32.5288 30.4247 32.9653 30.8638 33.3509C31.3011 33.7365 31.8824 33.9303 32.6093 33.9303C33.1961 33.9303 33.6802 33.8148 34.0577 33.5858C34.437 33.3568 34.7435 33.0319 34.979 32.613C35.2145 32.1941 35.407 31.6969 35.5546 31.1195C35.7041 30.544 36.618 22.7009 38.64 16.956C40.4677 11.7572 43 6.9303 43 6.9303C43 6.9303 38.1747 13.6911 36.4834 17.0499Z" stroke="#714CEF" stroke-width="0.3"/>
+      <defs>
+      <linearGradient id="paint0_linear_62_451" x1="12.7353" y1="0.793934" x2="15.7839" y2="33.3204" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C4EFF"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+      </linearGradient>
+      </defs>
+    </svg>
+   
+</div>
+
+</div>
+
+<head>
+  <head>
+    <div class="main-content">
+      <div class="hero hero--fullscreen grey">
+        <div class="hero__container hero__container--reverse hero__container--fullscreen-center" style="background-image:url(https://i.pinimg.com/originals/86/58/73/8658734bc14756ecb1a29baa75d33626.jpg);background-size:cover;">
+          <div class="hero__image d-none">
+            <img src="https://i.pinimg.com/originals/86/58/73/8658734bc14756ecb1a29baa75d33626.jpg">
+          </div>
+          <div class="hero__content">
+            <!-- Menú Desplegable -->
+            <div class="menu-container">
+              <button id="menu-button" class="menu-button">☰</button>
+              <div id="dropdown-menu" class="dropdown-menu">
+                <a href="#Historia">Historia de la Ética</a>
+                <a href="#Ética">Ética</a>
+                <a href="#Tipos">Tipos de Ética</a>
+                <a href="#Éticay">Ética y Moral</a>
+                <a href="#Como">Como deberiamos mejorar nuestra Ética</a>
+                <a href="#La">La Moral</a>
+                <a href="#Tiposde">Tipos de Moral</a>
+                <a href="#Importancia">Importancia de la Moral</a>
+                <a href="#Quienes">Quienes fomentaron la Ética</a>
+                <a href="#Frases">Frases motivadoras de la ética</a>     
+              </div>
+            </div>
+            <!-- Fin Menú Desplegable -->
+            <h1 style="font-size:min(100px, max(11cqw, 28px));" class="hero__headline">Ética</h1>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </head>
+  
+</head>
+
+        
+
+<script>
+  document.getElementById("menu-button").addEventListener("click", function() {
+    var menu = document.getElementById("dropdown-menu");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+});
+
+window.onclick = function(event) {
+    if (!event.target.matches('.menu-button')) {
+        var menu = document.getElementById("dropdown-menu");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        }
+    }
+}
+
+</script>
+                  
+                  
+                  
+              <p></p>
+              <br>
+                </div></div></div>
+                <div class="text-block text-block--text-and-image white">
+                        <div class="text-block__container">
+                            <div class="text-block__content">
+                     <p></p>
+                     <br>
+                      <div class="text-block__description">
+                        <div id="Historia">  <b> Historia de la Ética </b></div>
+
+                      </br>
+                       
+                      <p>
+                      
+                      La Ética como problema filosofico es objeto de estudio de pensadores y filosofos desde la Antiguedad. <br>
+                       Filosofos como Platon (c. 427-347 a. C.) y Aristoteles (384-322 a. C.) estudiaron la conducta humana y <br>
+                       los codigos bajo los que se rige. Obras como Gorgias, Fedon y Republica, de Platon, trabajan problemas eticos <br>
+                        como el hedonismo, la vida despues de la muerte y la etica publica, respectivamente.
+                      </p> <br>
+                      
+                       <p>En su Etica nicomaquea, Aristoteles presenta el primer tratado de etica propiamente dicho de la historia. <br>
+                       La etica aristotelica trata sobre la forma en que se debe alcanzar la felicidad como fin ultimo del ser humano, <br>
+                        y relaciona la felicidad con las virtudes y la autonomia material y fisica. <br>
+                      </p>
+                      <br>
+                      <p>En la Edad Media la etica unio la busqueda de la felicidad con la doctrina cristiana segun los diez mandamientos. <br>
+                      El rol de la etica durante este periodo fue interpretar de modo correcto las sagradas escrituras. Gracias a ello <br>
+                      aparecio la idea de la caridad como fin ultimo del ser humano, <br>
+                       adquirida al vivir a traves del Evangelio y teniendo a Dios como bien supremo y maxima plenitud.  <br>
+                       Se destacan las obras de pensadores religiosos como Agustin de Hipona (354-430) y Tomas de Aquino (1224-1274). <br>
+                      </p>
+                      
+                      
+                      <P>Durante la Edad Moderna se impuso la necesidad de construir un modelo etico, que respondiera a la razon. <br>
+                       Los grandes filosofos modernos, como Rene Descartes (1596-1650), Baruch Spinoza (1632-1677) y David Hume (1711-1776),  <br>
+                       trabajaron en distintas cuestiones eticas y morales, tal como se observa en la Etica de Spinoza. <br>
+                      </P>
+                      
+                      
+                      <p>Sin embargo, fue Immanuel Kant (1724-1804) quien revoluciono la etica moderna con las obras Fundamentacion metafisica de las costumbres,<br> 
+                       Critica de la razon practica y Metafisica de las costumbres. La idea del imperativo categorico, postulada por primera vez en la <br>
+                        Fundamentacion metafisica de las costumbres, sostiene que solo se debe obrar segun una maxima que pueda considerarse como ley universal. <br>
+                        Esto implica que, antes de tomar una decision conductual, hay que preguntarse que podria pasar si todas las personas hicieran exactamente  <br>
+                        lo mismo, como si se tratara de una ley total. <br>
+                        </p>
+                        <br>
+                      
+                      
+                      <p>Los siglos XIX y XX, escenarios de las Grandes Guerras, vieron a una sociedad harta de los mandamientos tradicionales y <br>
+                       las ideas y conductas que se desprendian de las leyes y codigos morales vigentes. <br>
+                      Desde el existencialismo (con Sartre como su representante) ante las criticas y posturas de Emmanuel Levinas <br>
+                      y Jacques Derrida a la metafisica de la mismidad, distintos autores pusieron la pregunta por la alteridad  <br>
+                      (el otro distinto a mi) como uno de los principales problemas eticos y dilemas morales de la actualidad. <br>
+                      El siglo XXI, por su parte, concentro sus estudios alrededor de preguntas y dilemas respecto a la tecnologia, <br>
+                      la manipulacion genetica, el consumo animal, la violencia hacia las minorias invisibilizadas, la distribucion <br>
+                       economica, el avance de la robotica y la virtualidad. <br>
+                      </p>
+                      </br>
+                  <br>
+                  <br>
+                    </div>
+                    <div class="text-block__image">
+                    </div>
+                  </div>
+                 
+                  </div>
+              </div>
+          </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="cards white">
+                <div class="cards__container">
+                 
+                  <div class="cards__content">
+                  <div class="cards-card">
+                    <img src="https://i.pinimg.com/originals/71/20/2d/71202d38e2c27aa72a461104d6ad96e0.jpg"/>
+                   <div id="Ética"> <h4 class="cards__headline">Ética </h4> </div>
+                    <div class="card__description">
+                      La etica se aplica en todos aquellos campos de la vida en los que aparece <br>
+la posibilidad de elevar un juicio o dilema moral. <br>
+La etica aplicada se clasifica segun el ambito en el que se desarrolle, y puede ser: <br>
+</p>
+<br>
+
+<div id="Tipos"><h4 class="cards__headline">Tipos de Ética </h4> </div>
+<b>Ética profesional:</b> Ejercicio de una profesion. Por ejemplo: etica medica o etica psicologica.
+<p>
+
+<b>Ética militar:</b>Es la que tiene que ver con el uso de las fuerzas belicas, especialmente en epocas de guerra o de conflicto.
+
+<p>
+
+  <b>Ética economica:</b>Es la etica vinculada con la economia, el comercio y las finanzas, y que se hace preguntas respecto <br>
+
+   a 
+  como esta bien y como esta mal hacer dinero.
+
+<p>
+
+  <b>Ética religiosa:</b>Que se desprende de una religion organizada y que sigue una tradicion moral y cultural especifica. <br>
+   Por ejemplo: La etica cristiana, islamica o judia.
+<p>
+
+  <b>Ética ambiental:</b> Es la etica vinculada con el ser humano y la relacion que establece con el entorno natural que lo rodea.
+
+<p>
+
+  <b>Bioetica: </b>Es la etica que reflexiona sobre los conflictos eticos que surgen conforme el desarrollo y avance de la ciencia <br>
+  y la tecnologia en el area de la medicina.
+<p>
+
+  <b>Ética social:</b> Es la etica vinculada a las relaciones entre los individuos y las consecuencias sociales de sus actos.
+
+<p>
+  <br>
+
+                  
+                    </p></div>
+                  </div><div class="cards-card"><img src="https://i.pinimg.com/originals/b3/89/01/b389018a219e7622dcf54d4e90248dd3.jpg"/>
+               <div id="Éticay"><center> <h4 class="card__headline">Ética y Moral</h4> </center></div>
+                <div class="card__description"></div>
+                <p>
+                  La Ética y la moral son conceptos estrechamente relacionados que, sin embargo, no significan lo mismo. <br>
+                  La distincion mas simple entre ellos es que la etica es la disciplina que estudia la moral, es decir, <br>
+                  que reflexiona sobre los problemas morales.
+                  <p>
+                    <br>
+                  La moral es el conjunto de reglas y dilemas que regulan el comportamiento humano dentro de un determinado <br>
+                   contexto o sociedad. La etica, por su parte, es una aproximacion teorica que reflexiona a traves de la  <br>
+                   razon y enuncia principios eticos que profundizan la naturaleza de los dilemas morales. <br>
+                  <p>
+                  <br>
+                  Con frecuencia es la moral la que determina si una practica es aceptada o no en una determinada sociedad, <br>
+                   <br>
+                  mientras que la etica es la que reflexiona sobre estas conductas.
+                  <br>
+                  <p>
+    
+                  <b>Cual es la importancia de la Ética </b>
+                  <p>
+                  
+                  La Ética es permanente, universal y objetiva, y nos persigue en nuestra vida cotidiana; <br>
+                  es aquella que nos garantiza que actuemos correctamente, que podamos conocer y escoger nuestros valores, <br>
+                   y que tengamos la libertad de adquirir criterio y juicio propio, mediante el uso de la razon. <br>
+                  
+                  </br>
+
+
+              </div>
+              <div class="cards-card">
+                <img src="https://4vrse5.webmepage.com/assets/etica/fp-fp-8262764.jpg"/>
+                
+                <div id="Como"><h4 class="card__headline">Como deberiamos mejorar nuestra Ética</h4> </div>
+                <div class="card__description"></div>
+                <p>
+
+                  1. <b>Autoconocimiento</b>: Reflexiona sobre tus valores, principios y comportamientos. Identifica areas de mejora y <br>
+                  comprometete con el cambio personal.
+                  
+                  <p>
+                  
+                  2.<b> Educacion continua</b>: La etica evoluciona con la sociedad. Mantente informado sobre debates eticos contemporaneos, 
+                  teorias eticas y dilemas morales para enriquecer tu comprension y aplicar estos conocimientos en la vida cotidiana.
+                 
+                  <p>
+                  
+                  3. <b>Empatia y respeto</b>: Practica la empatia activamente, tratando de entender las perspectivas y sentimientos de los demas. 
+                  El respeto por las diferencias y la dignidad de cada persona es fundamental para una etica solida.
+                  
+                  <p>
+                  
+                  4.<b> Integridad y honestidad</b>: Se coherente en tus acciones y palabras. La honestidad no solo con los demas, sino tambien 
+                  contigo
+                   mismo, es crucial para vivir eticamente.
+                  
+                  <p>
+                 
+                  5. <b>Responsabilidad</b>: Reconoce y asume la responsabilidad por tus acciones y sus impactos en los demas y en el medio <br>
+                  ambiente. Esto incluye hacerse cargo de los errores y trabajar para corregirlos.
+                  
+                  <p>
+                 
+                  6. <b>Compromiso con el bien comun </b>: Considera el impacto de tus acciones en la comunidad y el medio ambiente. <br>
+                  Trabaja por el bienestar de otros y el planeta, buscando soluciones sostenibles y justas.
+                 
+                  <p>
+                 
+                  7. <b>Desarrollo de habilidades de toma de decisiones eticas</b>: Aprende y practica metodos para evaluar dilemas eticos,
+                  considerando las consecuencias de tus acciones para todas las partes involucradas.
+                  
+                  <p>
+                  
+                  8. <b>Accion y participacion activa</b>: Participa en actividades comunitarias, iniciativas sociales o ambientales. <br>
+                   El cambio etico tambien se logra a traves de acciones concretas y el compromiso con causas mayores.
+                 
+                  <p>
+                  
+                  9. <b>Promocion de la justicia y la equidad</b>: Lucha contra la injusticia y promueve la equidad y la inclusion <br>
+                   en todas las esferas de la vida.
+                  
+                  <p>
+                  
+                  10. <b>Reflexion y dialogo</b>: Fomenta espacios de dialogo abierto sobre etica en tu comunidad, lugar de trabajo 
+                  y circulos sociales. La reflexion colectiva y el intercambio de ideas son fundamentales para el crecimiento etico de una sociedad. 
+                  <br>
+        
+                </div><div class="cards-card"><img src="https://i.pinimg.com/originals/11/20/da/1120da50f8e4def5da3b01d2f0df3d74.png"/>
+                <div id="La"> <center> <h4 class="card__headline">La Moral</h4> </center> </div> 
+                   <div class="card__description"></div>
+                   <p>
+                    La moral es el conjunto de normas y valores necesarios para la convivencia de las distintas comunidades.
+                    Aunque las sociedades más moralistas no son necesariamente las más prósperas, todas las comunidades 
+                    se rigen por un código moral compuesto de distintas conductas, hábitos
+                     <br>y 
+                     costumbres.
+                    <p>
+                      <br>
+                      La moral se piensa como las reglas escondidas en el comportamiento. 
+                      Las personas actúan según hábitos y conductas morales tácitos, aprendidos durante su vida. 
+                     <br> Sin
+                      embargo, a diferencia de la ética, que es una disciplina filosófica, la moral no estudia esas reglas,
+                      sino que es el conjunto de valores y normas que rigen a las personas. 
+                    <p>
+                      <br>
+                      En la Antigüedad, cuando se hablaba de moral, 
+                      se hacía en referencia al conjunto de costumbres que formaban el carácter ético de las personas. 
+                      Sin embargo, en el mundo medieval esta distinción dejó de funcionar y empezó a hablarse de moral 
+                      teórica para referirse a la ética y moral práctica para referirse a la moral.
+
+
+
+                   </div><div class="cards-card"><img src="https://i.pinimg.com/564x/d9/e3/d3/d9e3d3c592068cd7f54faf2964004457.jpg"/>
+                    <div id="Tiposde"><center> <h4 class="card__headline">Tipos de Moral</h4> </center> </div>
+                     <div class="card__description"></div>
+                     <p>
+                      Existen distintas formas de clasificar a la moral. Una de 
+                      <br>ellas 
+                       es la distinción entre moral objetiva, 
+                      dictada por la tradición cultural y que no depende de las personas, y moral subjetiva, que tiene que ver 
+                      con las decisiones individuales.
+                      <p>
+                        <br>
+                        Moral individual. Es la moral que trabaja con las elecciones personales de los individuos. 
+                        Por ejemplo, cuando una persona tiene que decidir entre cuidar a un familiar o cuidarse a sí misma acude a su moral individual.
+<p><br>
+Moral social. Es la moral que trabaja con la idea de lo colectivo (lo grupal) que imponen las instituciones o tradiciones.
+Por ejemplo, cuando las personas se agrupan por sus ideas políticas, la moral social se pregunta cómo se vinculan esas personas colectivamente y cómo eso afecta al resto de los ciudadanos.
+<p><br>
+Moral socioeconómica. Es la moral que evalúa las decisiones de las personas en relación con su condición social y económica.
+Por ejemplo, cuando un vendedor coloca algunos productos a un precio más elevado que el resto, la moral socioeconómica se pregunta por qué lo hace y qué efecto genera en los compradores.
+
+<br>
+  
+
+                     </div><div class="cards-card"><img src="https://i.pinimg.com/564x/cb/99/aa/cb99aa8e94e615cd93d7bf4b1fc96c0d.jpg"/>
+                     <div id="Importancia"><center> <h4 class="card__headline">Importancia de la Moral</h4> </center></div> 
+                       <div class="card__description"></div>
+                       <p>
+                        Tanto la ética como la moral son importantes no solo para la filosofía sino para la vida humana en general. 
+                        <p>
+                          <br>
+                          Todas las personas son distintas. La moral ayuda a que esas diferencias convivan. 
+                          Construida según hábitos, normas y costumbres trabajadas a lo largo del tiempo, 
+                          construye formas de comportamiento necesarias para una vida pacífica, abierta al respeto y 
+                          el entendimiento de los demás. 
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <p></p>
+
+
+        <div id="Frases"><h2>Frases motivadoras de la ética </h2></div>
+<br>
+<p></p>
+        
+    
+          
+          <b><p>"La ética no es otra cosa que la reverencia por la vida."</p></b>
+          <br>
+
+         <b><p>   "La ética es saber la diferencia entre lo que tienes derecho a hacer y lo que es correcto hacer."  </p></b>
+         <br>
+     
+        <b><p> "La ética es la columna vertebral de la humanidad. Es lo que nos une como sociedad." </p></b>
+        <br>
+
+          <b><p> "El propósito de la vida humana es servir, y mostrar compasión y voluntad de ayudar a los demás." </p></b>
+          <br>
+      
+        <b><p> "Ser bueno con los demás no es solo una obligación, es una gratificación." </p></b>
+        <br>
+
+        <b><p> "La ética no es un evento, es un proceso continuo." </p></b>
+        <br>
+       
+
+             
+          <br>
+          <br>
+      </head>
+  
+      <div id="Quienes"><div id="Ramas"> <h2>Quienes fomentaron la Ética</h2></div> </div>
+      <div class="gallery-container">
+          <div class="gallery-item">
+              <a href="https://es.wikipedia.org/wiki/S%C3%B3crates" >
+                  <img src="https://t1.uc.ltmcdn.com/es/posts/7/5/6/quien_fue_socrates_15657_600.jpg"  heigth="300px"  width="200px" >
+                  <div class="gallery-title">Socrates</div>
+              </a>
+          </div>
+          <div class="gallery-item">
+              <a href=" https://es.wikipedia.org/wiki/Plat%C3%B3n">
+                  <img src=" https://upload.wikimedia.org/wikipedia/commons/d/da/Plato_Pio-Clemetino_Inv305.jpg"  heigth="300px"  width="200px">
+                  <div class="gallery-title">Platon</div>
+              </a>
+          </div>
+          <div class="gallery-item">
+              <a href="https://es.wikipedia.org/wiki/Arist%C3%B3teles">
+                  <img src="https://www.biografia.de/biografia/Aristoteles.jpg"  heigth="300px"  width="200px">
+                  <div class="gallery-title">Aristoteles</div>
+              </a>
+          </div>
+    
+          <div class="gallery-item">
+              <a href="https://es.wikipedia.org/wiki/Confucio">
+                  <img src="https://curiosfera-historia.com/wp-content/uploads/Biografia-de-Confucio.jpg"  heigth="300px"  width="200px">
+                  <div class="gallery-title">Confucio</div>
+              </a>
+          </div>
+          <div class="gallery-item">
+              <a href="https://es.wikipedia.org/wiki/Immanuel_Kant">
+                  <img src="https://www.alejandradeargos.com/images/articulos/Cuartango/immanuel-kant.jpg"  heigth="300px"  width="200px">
+                  <div class="gallery-title">Immanuel Kant</div>
+              </a>
+          </div>
+    
+          <div class="gallery-item">
+            <a href="https://es.wikipedia.org/wiki/John_Stuart_Mill">
+                <img src="https://cdn.britannica.com/68/99068-050-BF33B0EB/John-Stuart-Mill-carte-de-visite-1884.jpg"  heigth="300px"  width="200px">
+                <div class="gallery-title">John Stuart Mill</div>
+            </a>
+        </div>
+          
+         
+      </div>
+      
+                  </body>
+                  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+<div class="cartera">
+    <span style="font-family: Lobster, italic;font-size: 40px;">Compartir</span>
+    <div class="tarjeta tfacebook">
+     <a class="fa-facebook" href="https://www.facebook.com/?locale=es_LA">Facebook</a>
+    </div>
+    <div class="tarjeta ttwitter">
+     <a class="fa-twitter" href="https://x.com/YOSSELI95651141">Twitter</a>
+    </div>
+    <div class="tarjeta tinstagram">
+     <a class="fa-instagram" href="https://www.instagram.com/yosselin_2329/">Instagram</a>
+    </div>
+   </div>
+   </div>
+
+                  <br>
+                  <br>
+                  <footer>
+                    Todos los derechos reservados &copy; 2024
+                    <span>Diseñado por Yosselin Antunez</span>
+                    <div class="footer-icons">
+                        <a >&#9733;</a>
+                        <a >&#9733;</a>
+                        <a>&#9733;</a>
+                    </div>
+                </footer>
+         
+                </html>

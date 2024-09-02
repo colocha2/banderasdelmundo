@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIENCIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-image: url('https://img.freepik.com/vector-gratis/fondo-ciencia-retro_23-2148557500.jpg');  /* URL de la imagen */
+            background-size: line; /* Ajusta el tamaño de la imagen para cubrir el encabezado */
+            background-position: center; /* Centra la imagen */
+            background-color: #8fed92bc; /* Cambiar color del encabezado aquí */
+            text-align: center;
+            padding: 2rem 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: #d4c289;
+            color: rgb(255, 255, 255);
+            padding: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: rgb(142, 180, 213);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+        }
+
+        ul.acorh, ul.acorh * {   /* Estilo de las opciones de navegacion */
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        ul.acorh {
+            list-style: none;
+            font-size: 18px;
+        }
+
+        ul.acorh > li {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+        }
+
+        ul.acorh li a {
+            display: block;
+            padding: 10px 20px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        ul.acorh li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fcfcfc;
+            border: 1px solid #c9a2a2;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul.acorh li:hover ul {
+            display: block;
+        }
+
+        ul.acorh li ul li {
+            width: 100%;
+        }
+
+        ul.acorh li ul li a {
+            padding: 10px 40px;
+            background: #ffffff;
+            color: #876c6c;
+            font-size: 16px;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        ul.acorh li ul li a:hover {
+            background: #ce716c;
+            color: #000000;
+        }
+
+        nav form {       /* Estilo del buscador  */
+            display: flex;
+        }
+
+        nav input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        nav button {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            background-color: #fbbb5a;
+            color: rgb(5, 5, 5);
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #ac9090;
+        }
+
+        text {
+            fill: #d23b3b;
+            filter: url('#money');
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 120px;
+            font-weight: 700;
+        }
+
+        section {      /* Estilo de las imagenes Section */
+            display: flex;
+            width: 600px;
+            height: 410px;
+        }
+              
+        section img { 
+            width: 0px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: .8;
+            transition: .5s ease;
+        }
+     
+        section img:hover {
+            cursor: crosshair;
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 70px;
+            box-sizing: border-box;
+            padding: 1rem;
+        }
+
+
+        text {
+            fill: #175f17;
+            filter: url('#money');
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 120px;
+            font-weight: 700;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 900px;
+            box-sizing: border-box;
+            padding-right: 20px;
+        }
+        .suggestions {   /* Te podria interesar */
+            background-color: rgb(214, 214, 214);
+            padding: 15px;
+            border-right: 4px solid #35e23b;
+            width: 300px;
+            margin-top: 240px; /* Ajustar según sea necesario para que quede debajo del índice */
+            align-self: flex-end; /* Alinea a la derecha dentro del contenedor del contenido */
+           margin-right: 20px;
+        }
+
+        .toc-container {
+            width: 250px;
+            max-width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #88e43d;
+            padding: 10px;
+            box-shadow: 0 0 10px rgb(198, 21, 21);
+            box-sizing: border-box;
+            margin-left: 20px;
+            align-self: flex-start;  /* Para que el índice no crezca a la misma altura que el contenido */
+        }
+
+        .toc-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .toc-content {
+            margin-top: 10px;
+        }
+
+        .toc-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-content ul li a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .toc-content ul li a:hover {
+            text-decoration: underline;
+        }
+
+        
+        table {     
+                font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+                font-size: 12px;    
+                margin: 45px;    
+                 width: 480px;  
+                  }
+            
+           
+            td {  padding: 8px;     
+                background: #d5eaff;    
+                 border-bottom: 1px solid #070707;
+                color: rgb(0, 0, 0);   
+                 border-top: 1px solid ; }
+            
+            tr:hover td { background: #cef7c8; color: rgb(0, 0, 0); }
+
+
+            .gallery-container {    /* Galeria con barras de dezplazamienyo y titulo */
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #dbb3b3;
+            border: 1px solid #ccc;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            position: relative;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            display: block;
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery-item a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .gallery-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 154, 154, 0.6);
+            color: #ffffff;
+            padding: 5px;
+            font-size: 16px;
+            max-width: 90%;
+        }
+
+        .gallery-item:hover .gallery-title {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+ 
+          /* Reset */
+.cartera, .tarjeta, .tarjeta a {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+/* Contenedor general */
+.cartera {
+position: relative;
+width: 100%;
+max-width: 500px;
+margin: 5400px auto 0;
+text-align: center;
+line-height: 56px;
+font-size: 14px;
+font-family: sans-serif;
+}
+/* Cada tarjeta */
+.tarjeta {
+position: relative;
+width: 100%;
+height: 30px;
+margin: 0 auto;
+padding: 0;
+text-align: left;
+border-bottom: 3px groove #eee;
+}
+/* Estado normal */
+.tarjeta a {
+position: relative;
+display: block;
+top: -6px;
+left: 50%;
+width: 96%;
+margin-left: -48%;
+padding: 0 0 0 16px;
+line-height: 32px;
+font-weight: normal;
+border-radius: 16px 16px 0 0;
+text-decoration: none;
+box-shadow: 0 -2px 2px rgba(0,0,0,.1), 0 0 20px rgba(0,0,0,.2) inset; 
+-webkit-transition: all .2s linear;
+-moz-transition: all .2s linear;
+transition: all .2s linear;
+}
+/* Elevación de las tarjetas */
+.tarjeta a:hover {
+line-height: 52px;
+top: -26px;
+text-decoration: none;
+}
+/* Logos */
+.tarjeta a:before { 
+
+width: 20px;
+margin-right: 10px;
+text-align: center;
+font-family: Fontawesome;
+font-size: 18px;
+}
+/* Sombra parte inferior */
+.tarjeta a:after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 102%;
+margin-left: -51%;
+height: 2px;
+display: block;
+border-radius: 80px 80px 0 0 ;
+box-shadow: 0 -2px 6px #44a702;
+z-index: -1;
+}
+/* Colores Twitter */
+.tarjeta.ttwitter a {
+color: #ddd;
+background-color: #01AFEC;
+border-top: 2px solid #43CFFE;
+}
+/* Colores Facebook */
+.tarjeta.tfacebook a {
+color: #ccc;
+background: #3B559F;
+border-top: 2px solid #6B83C9;
+
+}
+/* Colores Instagram */
+.tarjeta.tinstagram a {
+color: #070707;
+background: #dbb7d6a7;
+border-top: 2px solid #df7a7a;
+}
+footer {
+            background-color: #cb8f8f;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+        }
+        footer span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .footer-icons {
+            margin-top: 10px;
+        }
+        .footer-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .footer-icons a:hover {
+            color: #ff6347;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <svg width='600' height='200'>
+            <filter id='money'>
+                <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand'/>
+                <feOffset in='expand' dx='1' dy='1' result='shadow_1'/>
+                <feOffset in='expand' dx='2' dy='2' result='shadow_2'/>
+                <feOffset in='expand' dx='3' dy='3' result='shadow_3'/>
+                <feOffset in='expand' dx='4' dy='4' result='shadow_4'/>
+                <feOffset in='expand' dx='5' dy='5' result='shadow_5'/>
+                <feOffset in='expand' dx='6' dy='6' result='shadow_6'/>
+                <feOffset in='expand' dx='7' dy='7' result='shadow_7'/>
+                <feMerge result='shadow'>
+                    <feMergeNode in='expand'/>
+                    <feMergeNode in='shadow_1'/>
+                    <feMergeNode in='shadow_2'/>
+                    <feMergeNode in='shadow_3'/>
+                    <feMergeNode in='shadow_4'/>
+                    <feMergeNode in='shadow_5'/>
+                    <feMergeNode in='shadow_6'/>
+                    <feMergeNode in='shadow_7'/>
+                </feMerge>
+                <feFlood flood-color='#ebe7e0'/>
+                <feComposite in2='shadow' operator='in' result='shadow'/>
+                <feMorphology in='shadow' operator='dilate' radius='1' result='border'/>
+                <feFlood flood-color='#35322a' result='border_color'/>
+                <feComposite in2='border' operator='in' result='border'/>
+                <feOffset in='border' dx='1' dy='1' result='secondShadow_1'/>
+                <feOffset in='border' dx='2' dy='2' result='secondShadow_2'/>
+                <feOffset in='border' dx='3' dy='3' result='secondShadow_3'/>
+                <feOffset in='border' dx='4' dy='4' result='secondShadow_4'/>
+                <feOffset in='border' dx='5' dy='5' result='secondShadow_5'/>
+                <feOffset in='border' dx='6' dy='6' result='secondShadow_6'/>
+                <feOffset in='border' dx='7' dy='7' result='secondShadow_7'/>
+                <feOffset in='border' dx='8' dy='8' result='secondShadow_8'/>
+                <feOffset in='border' dx='9' dy='9' result='secondShadow_9'/>
+                <feOffset in='border' dx='10' dy='10' result='secondShadow_10'/>
+                <feOffset in='border' dx='11' dy='11' result='secondShadow_11'/>
+                <feMerge result='secondShadow'>
+                    <feMergeNode in='border'/>
+                    <feMergeNode in='secondShadow_1'/>
+                    <feMergeNode in='secondShadow_2'/>
+                    <feMergeNode in='secondShadow_3'/>
+                    <feMergeNode in='secondShadow_4'/>
+                    <feMergeNode in='secondShadow_5'/>
+                    <feMergeNode in='secondShadow_6'/>
+                    <feMergeNode in='secondShadow_7'/>
+                    <feMergeNode in='secondShadow_8'/>
+                    <feMergeNode in='secondShadow_9'/>
+                    <feMergeNode in='secondShadow_10'/>
+                    <feMergeNode in='secondShadow_11'/>
+                </feMerge>
+                <feImage x='0' y='0' width='600' height='200' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/>
+                <feComposite in2='secondShadow' operator='in' result='secondShadow'/>
+                <feMerge>
+                    <feMergeNode in='secondShadow'/>
+                    <feMergeNode in='border'/>
+                    <feMergeNode in='shadow'/>
+                    <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+            </filter>
+            <text dominant-baseline='middle' text-anchor='middle' x='50%' y='50%'>
+             CIENCIA
+            </text>
+        </svg>
+    </header>
+    
+    <nav>
+        <ul class="acorh">
+            <li>
+                <a href="#">Biología</a>
+                <ul>
+                    <li><a href="https://es.wikipedia.org/wiki/Ecolog%C3%ADa">Ecologia</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Bot%C3%A1nica">Botanica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Biolog%C3%ADa_celular">Biologia Celular</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Biolog%C3%ADa_marina">Biologia Marina</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Biolog%C3%ADa_molecular">Biologia Molecular</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Gen%C3%A9tica">Genetica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Taxonom%C3%ADa">Taxonomia</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Etolog%C3%ADa">Etologia</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Microbiolog%C3%ADa">microbiologia</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Anatom%C3%ADa">Anatomia</a></li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="#">Quimica</a>
+                <ul>
+                    <li><a href="https://es.wikipedia.org/wiki/Qu%C3%ADmica_nuclear">Química Nuclear</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Qu%C3%ADmica_org%C3%A1nica">Química Orgánica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Espectroscopia">Espectroscopía</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Qu%C3%ADmica_inorg%C3%A1nica"> Química inorgánica</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Geologia</a>
+                <ul>
+                    <li><a href="https://es.wikipedia.org/wiki/Geof%C3%ADsica">Geofísica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Tect%C3%B3nica">Tectónica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Estratigraf%C3%ADa"> Estratigrafía</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Hidrolog%C3%ADa">Hidrología</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Meteorolog%C3%ADa">Meteorología</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Geomorfolog%C3%ADa">Geomorfología</a></li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Fisica</a>
+                <ul>
+                    <li><a href="https://es.wikipedia.org/wiki/Mec%C3%A1nica_cl%C3%A1sica">Mecanica Clasica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Electromagnetismo">Electronomagnetismo</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Teor%C3%ADa_de_la_relatividad">Relatividad</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Termodin%C3%A1mica">Termodinamica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Mec%C3%A1nica_cu%C3%A1ntica">Mecanica Cuantica</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Astronomia</a>
+                <ul>
+                    <li><a href="https://es.wikipedia.org/wiki/Astrof%C3%ADsica#:~:text=La%20astrof%C3%ADsica%20es%20el%20desarrollo,su%20composici%C3%B3n%2C%20estructura%20y%20evoluci%C3%B3n.">Astrofísica</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Mec%C3%A1nica_celeste">Mecánica celeste</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Astrometr%C3%ADa">Astrometría</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Astrosismolog%C3%ADa">Astrosismología</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Cosmolog%C3%ADa">Cosmología</a></li>
+                    
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">Ética</a>
+                <ul>
+                    <li><a href="file:///C:/Users/Maely%20IPSFP/Desktop/P.P.Y/ETICA.html">Ética</a></li>
+                    
+                </ul>
+            </li>
+              
+        
+
+        </li>
+            
+        </ul>
+        <form action="https://www.google.com/search" method="GET" target="_blank">
+            <input type="text" name="q" >
+            <button type="submit">Buscar</button>
+        </form>
+    </nav>
+    
+    <div class="main-container">
+        <div class="content">
+            <div id="Origen">    <h2>Origen de la ciencia</h2>  </div>
+           
+            
+            <img src="https://concepto.de/wp-content/uploads/2013/05/Galileo-Galilei-e1552303938763.jpg" height="240" >
+
+       <p>La palabra “ciencia” proviene del latín scientia, que traduce “conocimiento”, <br>
+              pero su empleo para denominar al estudio crítico de la naturaleza es reciente: <br>
+              en el siglo XIX el británico William Whewell (1794-1866) comenzó a emplear <br>
+              el término “científico” para referirse a quienes practicaban lo que toda la vida <br>
+              se llamó “filosofía”, “naturalismo”, “historia natural” o “filosofía natural”, esto es, <br>
+              el estudio de las leyes de la naturaleza.</p> 
+
+              <p>De hecho, bajo algunos de esos nombres se cultivó en la Antigüedad el <br>
+              conocimiento científico, esto es, el interés por averiguar cómo funcionan las <br>
+              cosas del mundo y por qué. Pero en la Antigüedad la búsqueda científica era <br>
+              indisociable del pensamiento religioso, ya que la mitología y la magia eran las <br>
+              únicas formas de explicación disponibles para el ser humano. </p> 
+              
+             <p> Esto cambió significativamente en la Grecia clásica, al surgir la filosofía: <br>
+              una doctrina de pensamiento no religioso, cuyo fin era reflexionar y tratar de hallar <br>
+              las respuestas de manera lógica. Los grandes filósofos griegos eran también <br>
+              “científicos” de alguna manera, pues junto a la lógica formal y el pensamiento <br>
+              existencial cultivaban la matemática, la medicina y el naturalismo, o sea, <br>
+              la observación de la naturaleza. </p> 
+              
+             <p>Hacia el siglo XV se produjo el Renacimiento y nuevas mentes comenzaron a <br>
+              cuestionar lo que dictaban los textos bíblicos. Aumentó la confianza en la <br>
+              interpretación racional y empírica de la evidencia, produciendo un <br>
+              importante quiebre que permitió el paulatino nacimiento de la ciencia. </p> 
+              
+             <p> En ello jugaron un rol importantísimo muchos pensadores renacentistas <br>
+              y postrenacentistas, influenciados por el Humanismo que, por primera vez, <br>
+              convenció a la humanidad de que podía hallar sus propias respuestas a las <br>
+              eternas preguntas sobre el porqué de las cosas. Destacan los nombres de <br>
+              <a href="https://es.wikipedia.org/wiki/Galileo_Galilei#:~:text=Galileo%20Galilei%20(Pisa%2C%2015%20de,estrechamente%20con%20la%20revoluci%C3%B3n%20cient%C3%ADfica.">Galileo Galilei (1564-1642)</a>, <a href="https://es.wikipedia.org/wiki/Ren%C3%A9_Descartes">René Descartes (1596-1650)</a>, <a href="https://es.wikipedia.org/wiki/Francis_Bacon">sir Francis Bacon (1561- <br>
+                  1626)</a> e <a href="https://es.wikipedia.org/wiki/Isaac_Newton">Isaac Newton (1643-1727)</a>, entre otros. </p> 
+              
+              <p>Así nació formalmente el pensamiento científico que fue cobrando cada vez <br>
+              mayor relevancia en el orden cultural de la sociedad. De hecho, a partir del <br>
+              siglo XVIII la transformó profunda y radicalmente en combinación con la <br>
+              técnica, creando así la tecnología y dando inicio a la Revolución Industrial. </p> 
+              
+        <div id="Quees">  <h2>¿Que es la Ciencia?</h2> </div>
+           <img src="https://concepto.de/wp-content/uploads/2012/03/ciencia.jpeg" height="240" alt="Imagen de introducción a la ciencia" > 
+            <p>La ciencia es el conjunto de conocimientos organizados, jerarquizados y <br>
+              comprobables,obtenidos a partir de la observación de los fenómenos <br>
+              naturales y sociales de la realidad (tanto natural como humana), y también de <br>
+              la experimentación y demostración empírica de las interpretacionesbr <br>
+               que les damos. </p>
+               
+           <p>Estos conocimientos, además, son registrados y sirven de base a las <br>
+               generaciones futuras. Así que la ciencia se nutre a sí misma, se cuestiona,<br>
+                depura y acumula con el paso del tiempo. </p>
+                
+           
+           <p>En el concepto de ciencia están contenidos diferentes saberes, técnicas, <br>
+           teorías e instituciones. Todo ello, en principio, tiene como objetivo descubrir <br>
+            cuáles son las leyes fundamentales que rigen la realidad, cómo lo hacen y, <br>
+             de ser posible, por qué. </p> 
+           
+          <p> Se trata de un producto cultural de la humanidad moderna, quizá uno de los <br>
+            más celebrados y reconocidos de su historia, cuyas raíces sin embargo han <br>
+             estado con nosotros desde la Antigüedad clásica.</p> 
+           
+          <p>La ciencia es un modelo de pensamiento inspirado en la racionalidad <br>
+          humana y en el espíritu crítico, valores filosóficos que tuvieron su auge a <br>
+          partir del Renacimiento europeo. Es por ello que a los profundos cambios <br>
+          filosóficos y cosmológicos que tuvieron lugar entre los siglos XVI y XVII a <br>
+          menudo se les conoce como la Revolución Científica. </p> 
+          
+
+
+          <div id="Características"><h2>Características de la ciencia</h2></div>
+          En toda su complejidad, la ciencia se caracteriza por lo siguiente: <br>
+          <p></p>
+       <li>  Aspira a descubrir las leyes que rigen el universo que nos rodea, mediante métodos racionales, empíricos, demostrables y universales. En ese sentido, valora la objetividad y la metodicidad, y se aleja de las subjetividades. <br>
+<p></p>
+         <li> Analiza sus objetos de estudio tanto cuantitativa como cualitativamente, aunque no siempre acuda a modelos experimentales de comprobación (dependiendo de la materia). <br>
+<p></p>
+
+<li> Se fundamenta en la investigación, esto es, en un espíritu crítico y analítico, así como en los pasos que establece el método científico, para formular leyes, modelos y teorías científicas que expliquen la realidad.  <br>
+<p></p>
+
+       <li>  Genera una importante cantidad de conocimiento especializado que debe ser puesto en duda y luego validado por la propia comunidad científica, antes de ser aceptado como cierto o valedero.  <br>
+<p></p>
+      
+        </li> 
+    </li> 
+</li> 
+</li> 
+
+
+
+
+
+
+        <div id="Cientificos"> <h2>Científicos mas destacados</h2> </div> 
+                <table border="2">
+                
+                   
+                   <thead>
+                   </tr>
+
+                   <td><b>Charles Darwin </b>: 
+                    <p>La teoria de la Evolucion y el Origen de las Especies</td>
+                    
+                        <td>
+                            <a href="https://es.wikipedia.org/wiki/Charles_Darwin">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Charles_Darwin_portrait.jpg/220px-Charles_Darwin_portrait.jpg " height="100px" width="100">
+                            </a>
+            
+
+                   </tr>
+                   <tr>
+                   
+                   <td><b>Rosalind Franklin</b>: 
+                    <p>La Estructura de doble Helice del ADN.</td>
+                    
+                   <td> 
+                    <a href="https://es.wikipedia.org/wiki/Rosalind_Franklin">
+                    <img src="https://mujeresconciencia.com/app/uploads/2014/04/rosalind-franklin-780x1000.jpg" heigth=" 90px " width="100"> </td>
+                </a>
+                   </tr>
+                   <tr>
+                   
+                   <td><b>Galileo Galilei</b>: 
+                    <p>La Astronomia y la Fisica Moderna. </td>
+                   <td>
+                    
+                    <a href="https://es.wikipedia.org/wiki/Galileo_Galilei">
+                    <img src="https://www.uv.es/recursos/fatwirepub/ccurl/383/132/Galileu%20Galileu%20retallada.jpg"  heigth=" 90px " width="100" > </td>
+                </a>
+                   </tr>
+                   <tr>
+                   
+                   <td><b>Nikola Tesla</b>:
+                    <p>Inventor y Tecnologia Moderna.</td>
+                   <td>
+                    <a href="https://es.wikipedia.org/wiki/Nikola_Tesla">
+                    <img src="https://www.explica.me/__export/1681917402404/sites/debate/img/2023/04/19/nikola-tesla_1.jpg_423682103.jpg" heigth=" 90px " width="100"></td>
+                </a>
+                   </tr>
+                   <tr>
+                   
+                   <td><b> Louis Pasteur</b>:
+                    <p>La Microbiologia Moderna.</td>
+                   <td>
+                    <a href="https://es.wikipedia.org/wiki/Louis_Pasteur">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Louis_Pasteur.jpg/640px-Louis_Pasteur.jpg" heigth=" 90px " width="100"> </td>
+                </a>
+                   </tr>
+                   <tr>
+                   
+                   <td><b> Nicolas Copernico</b>: 
+                    <p>La Tierra y El Sol.</td>
+                   <td>
+                    <a href="https://es.wikipedia.org/wiki/Nicol%C3%A1s_Cop%C3%A9rnico">
+                   <img src="https://www.infobae.com/new-resizer/J13atfhEPy1X2xhwguwpHoLeCGs=/1200x1600/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/A5WFRRG2G5EXHFEJQNKFIDV4ZA.jpg" heigth=" 90px " width="100"> </td>
+                </a>
+                   </tr>
+                   <tr>
+                   
+                   <td><b> Marie Curie</b>:
+                    <p> La Radiactividad</td>
+                   <td>
+                    <a href="https://es.wikipedia.org/wiki/Marie_Curie">
+                    <img src="https://reciencolados.files.wordpress.com/2016/12/0414a7785cfb4d1aea21e5301fbc3bf4.jpg?w=940" heigth=" 90px " width="100"> </td>
+                </a>
+
+                <tr>
+                   
+                    <td><b> Isaac Newton</b>:
+                     <p>Ley de la gravitación universal</td>
+                    <td>
+                     <a href="https://es.wikipedia.org/wiki/Isaac_Newton">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg/1200px-Portrait_of_Sir_Isaac_Newton%2C_1689.jpg" heigth=" 90px " width="100"> </td>
+                 </a>
+
+
+                 <tr>
+                   
+                    <td><b> Albert Einstein</b>:
+                     <p>Teoria de la Relatividad </td>
+                    <td>
+                     <a href="https://es.wikipedia.org/wiki/Albert_Einstein">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lyF-1PIiFi0XlRSOvvXVU8UbsRP0nCwwAw&s" heigth=" 90px " width="100"> </td>
+                 </a>
+            </table border="2">
+        </br>
+
+
+       <div id="Ramas"> <h2>Ramas de la Ciencia</h2></div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <a href="https://es.wikipedia.org/wiki/Portal:F%C3%ADsica#:~:text=La%20f%C3%ADsica%20(del%20lat.,energ%C3%ADa%2C%20as%C3%AD%20como%20sus%20interacciones." >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFf8xgy1BJBkag0Ab3qyW_gSNSiEuS79FpgA&s"  heigth=" 250px " width="275" >
+                    <div class="gallery-title">Fisica</div>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://es.wikipedia.org/wiki/Qu%C3%ADmica">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg2ooKKshK1IRB4ElLTCMr1Ohj8rC5cMrE7Q&s"  heigth=" 250px " width="275" >
+                    <div class="gallery-title">Quimica</div>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://es.wikipedia.org/wiki/Biolog%C3%ADa">
+                    <img src="https://imgmedia.larepublica.pe/640x371/larepublica/original/2022/04/17/625c4cc9ebb34633e300dec4.webp" heigth=" 250px " width="275">
+                    <div class="gallery-title">Biologia</div>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <a href="https://es.wikipedia.org/wiki/Astronom%C3%ADa">
+                    <img src="https://humanidades.com/wp-content/uploads/2018/09/astronomia-1-e1580089616804.jpg" heigth="250px" width="275">
+                    <div class="gallery-title">Astronomía</div>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://es.wikipedia.org/wiki/Geolog%C3%ADa">
+                    <img src="https://plustatic.com/1391/conversions/ramas-geologia-social.jpg" heigth=" 250px " width="275">
+                    <div class="gallery-title">Geologia</div>
+                </a>
+            </div>
+            
+           
+        </div>
+    
+            
+    <h2>Importancia de la ciencia</h2>
+
+    <p>La ciencia es fundamental para el desarrollo de la humanidad. <br>
+        Nos permite comprender el mundo que nos rodea, resolver problemas, <br>
+        mejorar nuestra calidad de vida y avanzar en el conocimiento.</p>
+
+
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mIanUwrBIJk?si=FCtiMcxVZ0eEUffO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 
+   
+
+ 
+    <div id="Ejemolos"><h2>Ejemplos de los aportes de la ciencia:</h2> </div>
+ 
+    <p><b>Medicina:</b>Desarrollo de vacunas, antibióticos y tratamientos para enfermedades. <br></p>
+ 
+    <section>
+ 
+  <img src="https://www.sefap.org/wp-content/uploads/2020/06/3806674.jpg">
+    
+ <img src="https://cdn.forbes.com.mx/2024/01/antibioticos-bacterias.webp">
+ 
+ <img src="https://img.freepik.com/fotos-premium/conjunto-medicamentos-tratamiento-infecciones-enfermedades-virales_105589-1354.jpg" >
+ 
+ 
+ </section>
+ <br>
+ 
+ <p><b>Agricultura:</b> Mejora de la producción de alimentos, desarrollo de nuevas variedades de cultivos y técnicas de cultivo. <br> </p>
+ 
+ <section>
+  
+     <img src="https://eldinero.com.do/wp-content/uploads/food-production-kashagan.today_-938x535-1.jpg" >
+ 
+ <img src="https://previews.123rf.com/images/ilixe48/ilixe481905/ilixe48190500416/124956708-zanahoria-en-el-campo-trabajo-cient%C3%ADfico-y-desarrollo-de-nuevos-m%C3%A9todos-y-selecci%C3%B3n-de-variedades.jpg" >
+ 
+ <img src="https://blog.globalcaja.es/wp-content/uploads/2022/07/tecnicas-cultivo-agricultura-ecologica.jpg" >
+ 
+ </section>
+ 
+ 
+
+
+
+
+<div id="Queavances"> <h2>Qué avances recientes han habido en ciencia</h2> </div>
+<b>Exploración Espacial :</b>
+  La exploración espacial ha sido una de las grandes protagonistas. 
+  Se lanzó la última misión a la luna en el marco del programa Artemis de la NASA,
+  que allanará el camino para una futura misión a Marte.
+  Esta nueva era de la exploración espacial generará avances tecnológicos en campos que van más allá de la astronáutica. <br>
+  <p></p>
+
+  <b>Genética:</b>Se logró leer el 92% del genoma humano, compuesto por los 3.000 millones de bases o letras de nuestro ADN 
+  Este hito supone el inicio de una nueva etapa que augura grandes avances en diferentes campos científicos, especialmente en el de la medicina  <br>
+   <p></p>
+    
+  <b>Inteligencia Artificial:</b> La capacidad de predecir la estructura tridimensional de las proteínas mediante inteligencia artificial ha sido otro avance significativo 
+ Además, se ha desarrollado un programa que, a través de técnicas de aprendizaje automático, es capaz de crear imágenes que surgen del ruido o descripciones habladas  <br>
+ <p></p>
+ <b>Medicina:</b> Se han probado con éxito dos vacunas en lactantes y adultos mayores. Además, la farmacéutica alemana BioNTech planea empezar las primeras pruebas en humanos de su vacuna ARNm contra la malaria y la tuberculosis, mientras que Moderna, de EE.UU., lo hará contra los virus que causan herpes genital y herpes zóster <br>
+ 
+ <p></p>
+ <b>Física:</b> Se han realizado medidas del muon que desafían el modelo estándar de la física 
+ Además, se han desvelado nuevos descubrimientos sobre el cosmos, incluyendo detalles sobre los orígenes de nuestro universo y las sustancias y fuerzas invisibles que impulsan el cosmos <br>
+ 
+
+ <p></p>
+Estos son solo algunos de los avances recientes en ciencia. El campo de la ciencia sigue evolucionando rápidamente, y cada año trae consigo nuevos descubrimientos y avances que amplían nuestro entendimiento del mundo y del universo en el que vivimos. <br>
+
+           
+<div id="Laimpor"><h2>La importancia de la ciencia en la vida cotidiana</h2></div>
+La ciencia está presente en todos los aspectos de nuestra vida cotidiana, desde que nos despertamos hasta que nos acostamos.Aunque muchas veces no lo notamos, la ciencia nos brinda las herramientas y el conocimiento que necesitamos para vivir mejor.
+
+        </div>
+        <div class="toc-container">
+            <div class="toc-title" onclick="toggleTOC()">Índice</div>
+            <div class="toc-content" id="tocContent">
+                <ul>
+                    <li><a href="#Origen ">1.Origen de la ciencia  </a></li>
+                    <li><a href="#Quees">2.¿Que es la ciencia?</a></li>
+                    <li><a href="#Características">3.Características de la ciencia</a></li>
+                    <li><a href="#Cientificos">4.Cientificos Mas Destacados</a></li>
+                    <li><a href="#Ramas">5.Ramas de la ciencia</a></li>
+                    <li><a href="#Ejemolos">6.Ejemplos de los aportes de la ciencia</a></li>
+                    <li><a href="#Queavances">7.Qué avances recientes han habido en ciencia</a></li>
+                    <li><a href="#Laimpor">8.La importancia de la ciencia en la vida cotidiana</a></li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTOC() {
+            const tocContent = document.getElementById('tocContent');
+            if (tocContent.style.display === 'none') {
+                tocContent.style.display = 'block';
+            } else {
+                tocContent.style.display = 'none';
+            }
+        }
+    </script>
+
+<div class="suggestions">
+    <h3>Te podría interesar...</h3>
+    <ul>
+        <li><a href="https://culturacientifica.com/2017/01/19/ciencia-y-tecnologia/">La ciencia y la tecnologia</a></li>
+        <li><a href="https://es.wikipedia.org/wiki/Premio_Nobel_de_la_Paz">Premios Nobel De La Paz</a></li>
+        <li><a href="https://www.significados.com/leyes-de-newton/">Cuáles son las Leyes de Newton</a></li>
+        <li><a href="https://es.wikipedia.org/wiki/Nanotecnolog%C3%ADa">Que es la Nanotecnologia</a></li>
+        <li><a href="https://es.wikipedia.org/wiki/Biotecnolog%C3%ADa">Biotecnología</a></li>
+        <li><a href="https://www.significados.com/conocimiento-cientifico/">Conocimiento Cientifico</a></li>
+    </ul>
+</div>    
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+<div class="cartera">
+    <span style="font-family: Lobster, italic;font-size: 40px;">Compartir</span>
+    <div class="tarjeta tfacebook">
+     <a class="fa-facebook" href="https://www.facebook.com/?locale=es_LA">Facebook</a>
+    </div>
+    <div class="tarjeta ttwitter">
+     <a class="fa-twitter" href="https://x.com/YOSSELI95651141">Twitter</a>
+    </div>
+    <div class="tarjeta tinstagram">
+     <a class="fa-instagram" href="https://www.instagram.com/yosselin_2329/">Instagram</a>
+    </div>
+   </div>
+   </div>
+
+
+
+   <footer>
+    Todos los derechos reservados &copy; 2024
+    <span>Diseñado por Yosselin Antunez</span>
+    <div class="footer-icons">
+        <a >&#9733;</a>
+        <a >&#9733;</a>
+        <a>&#9733;</a>
+    </div>
+</footer>
+</body>
+
+
+</html>
